@@ -9,12 +9,30 @@
     <meta property="og:description" content="Satu kampus. Banyak cerita. Mulai perjalananmu bersama Arthur.">
     <meta property="og:type" content="website">
     <title>A Little Campus Story</title>
+    <script>
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("intro-pending");
+        window.CAMPUS_INTRO_STARTED = performance.now();
+        window.CAMPUS_INTRO_FAILSAFE = window.setTimeout(() => {
+          document.documentElement.classList.remove("intro-pending");
+          document.documentElement.classList.add("intro-finished");
+        }, 2600);
+      }
+    </script>
     <link rel="icon" href="assets/map.webp" type="image/webp">
     <link rel="stylesheet" href="styles.css">
     <script src="config.js" defer></script>
     <script src="app.js" defer></script>
   </head>
   <body>
+    <div class="site-splash" id="site-splash" hidden aria-hidden="true">
+      <div class="splash-note">
+        <img class="splash-map" src="assets/map.webp" width="64" height="68" alt="">
+        <p class="splash-title">A Little<br>Campus Story<span>.</span></p>
+        <div class="splash-stroke"></div>
+        <p class="splash-caption">membuka lembar cerita<span class="splash-dots"><i>.</i><i>.</i><i>.</i></span></p>
+      </div>
+    </div>
     <a class="skip-link" href="#utama">Langsung ke isi</a>
     <header class="site-header">
       <a class="brand" href="#" aria-label="A Little Campus Story, halaman utama">
@@ -49,7 +67,7 @@
       </section>
 
       <section class="about section-shell" id="tentang" aria-labelledby="about-title">
-        <div class="about-copy">
+        <div class="about-copy" data-reveal>
           <p class="eyebrow">01 / KENALAN DULU</p>
           <h2 id="about-title">Kampusnya nyata.<br>Ceritanya dekat.</h2>
           <p><strong>A Little Campus Story</strong> adalah game petualangan berbasis cerita untuk Android. Ikuti Arthur melewati keseharian mahasiswa, menjelajahi kampus, dan menghadapi keraguannya sendiri.</p>
@@ -59,7 +77,7 @@
           </div>
           <p class="handwritten">Pelan-pelan juga tetap melangkah.</p>
         </div>
-        <figure class="game-photo">
+        <figure class="game-photo" data-reveal>
           <div class="tape tape-left" aria-hidden="true"></div>
           <img src="assets/gameplay.webp" width="1096" height="626" alt="Arthur dan seorang NPC di lingkungan kampus 3D, dengan kontrol dan antarmuka bergaya gambar tangan" loading="lazy">
           <figcaption>Sepotong dunia Arthur — dari versi pengembangan.</figcaption>
@@ -67,8 +85,8 @@
       </section>
 
       <section class="story section-shell" id="cerita" aria-labelledby="story-title">
-        <div class="story-icon" aria-hidden="true"><img src="assets/notes.webp" width="88" height="110" alt=""></div>
-        <div class="story-copy">
+        <div class="story-icon" data-reveal aria-hidden="true"><img src="assets/notes.webp" width="88" height="110" alt=""></div>
+        <div class="story-copy" data-reveal>
           <p class="eyebrow">02 / DI BALIK PERJALANAN</p>
           <h2 id="story-title">Mulai dari Arthur.</h2>
           <p>Keraguan belum tentu hilang. Tapi Arthur bisa memilih untuk tetap maju. Baca cerita lengkapnya dan kenali dunia di balik permainan.</p>
@@ -78,7 +96,7 @@
       </section>
 
       <section class="access section-shell" id="akses" aria-labelledby="access-title">
-        <div>
+        <div data-reveal>
           <p class="eyebrow">SAMPAI KETEMU DI KAMPUS</p>
           <h2 id="access-title">Siap melangkah?</h2>
           <p data-access-description>Versi Android sedang disiapkan. Perjalanannya segera dimulai.</p>

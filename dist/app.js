@@ -1,5 +1,24 @@
 (() => {
   "use strict";
+  const root = document.documentElement;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const splash = document.querySelector("#site-splash");
+
+  function finishIntro() {
+    window.clearTimeout(window.CAMPUS_INTRO_FAILSAFE);
+    root.classList.remove("intro-pending");
+    root.classList.add("intro-finished");
+    if (splash) window.setTimeout(() => { splash.hidden = true; }, reducedMotion.matches ? 0 : 450);
+  }
+
+  if (root.classList.contains("intro-pending") && !reducedMotion.matches && splash) {
+    splash.hidden = false;
+    const elapsed = performance.now() - (window.CAMPUS_INTRO_STARTED || 0);
+    window.setTimeout(finishIntro, Math.max(0, 1150 - elapsed));
+  } else {
+    finishIntro();
+  }
+
   const links = window.CAMPUS_LINKS || {};
   const dialog = document.querySelector("#availability-dialog");
   const title = document.querySelector("#dialog-title");
@@ -55,6 +74,40 @@
     const box = dialog.getBoundingClientRect();
     if (event.target === dialog && (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom)) {
       dialog.close();
+    }
+  });
+
+  // Konten tetap terlihat jika animasi dinonaktifkan atau browser tidak mendukung observer.
+  if (!reducedMotion.matches && "IntersectionObserver" in window) {
+    const items = document.querySelectorAll("[data-reveal]");
+    try {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -24px 0px" });
+      items.forEach((item) => {
+        observer.observe(item);
+        item.addEventListener("focusin", () => {
+          item.classList.add("is-visible");
+          observer.unobserve(item);
+        });
+      });
+      root.classList.add("motion-enabled");
+    } catch {
+      root.classList.remove("motion-enabled");
+    }
+  }
+
+  document.addEventListener("visibilitychange", () => {
+    root.classList.toggle("motion-paused", document.hidden);
+  });
+  reducedMotion.addEventListener("change", (event) => {
+    if (event.matches) {
+      finishIntro();
+      root.classList.remove("motion-enabled");
     }
   });
 })();

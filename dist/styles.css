@@ -82,4 +82,53 @@ dialog p:not(.eyebrow){color:var(--muted);font-size:14px;margin-bottom:25px}
 @media(max-width:1000px){.hero-copy{max-width:430px}.hero-wash{background:linear-gradient(90deg,#f6f3ebf5 0%,#f6f3ebe6 30%,#f6f3eb99 56%,#f6f3eb20 85%),linear-gradient(0deg,var(--paper),transparent 25%)}.about{gap:38px}.story{grid-template-columns:70px 1fr;gap:25px}.story>.button{grid-column:2;justify-self:start;margin-left:0}.story-icon img{width:63px}.margin-note{right:5%;font-size:14px}}
 @media(max-width:700px){html{scroll-padding-top:24px}.site-header{padding:15px 5.2%;gap:12px}.brand{font-size:13px;gap:8px}.brand img{width:26px;height:28px}nav{gap:16px;font-size:11px}.nav-about{display:none}.nav-download{padding:8px 10px;gap:8px}.hero,.hero-inner{min-height:690px}.hero-inner{align-items:flex-end;padding:210px 0 85px}.hero-art{height:360px;object-fit:cover;object-position:58% center}.hero-wash{background:linear-gradient(0deg,var(--paper) 0%,var(--paper) 43%,#f6f3ebc9 61%,#f6f3eb00 86%)}.hero-copy{max-width:100%}.hero-copy .eyebrow{font-size:9px;letter-spacing:1.6px;margin-bottom:15px}h1{font-size:43px;letter-spacing:-1.8px;line-height:1.24;margin-bottom:16px}.hero-description{font-size:14px;max-width:390px;margin-bottom:23px}.hero-actions{gap:21px}.button{min-height:50px;font-size:12px;padding:12px 18px;gap:22px}.margin-note{display:none}.release-note{font-size:10px}.scroll-cue{bottom:22px}.about{grid-template-columns:1fr;padding:53px 0;gap:33px}.about-copy>p:not(.eyebrow):not(.handwritten){max-width:none}.about .eyebrow{margin-bottom:14px}h2{font-size:32px}.handwritten{font-size:16px}.game-photo{margin:0 4px}.story{padding:33px 0;gap:20px;grid-template-columns:52px 1fr}.story-icon img{width:48px}.story h2{font-size:27px}.story .eyebrow{font-size:9px;letter-spacing:1.4px}.next-stories{font-size:12px}.story>.button{grid-column:2}.access{align-items:flex-start;flex-direction:column;padding:42px 0 45px;gap:20px}.access h2{font-size:30px}.site-footer{flex-wrap:wrap;justify-content:space-between;gap:8px;padding:22px 5.2%}.site-footer p{order:3;width:100%}.little-details{gap:24px}}
 @media(max-width:360px){nav{gap:10px}.brand{font-size:11px}.nav-download{font-size:10px}.hero-actions{gap:16px}h1{font-size:38px}.hero,.hero-inner{min-height:710px}.hero-copy .eyebrow{font-size:8px}.button{gap:15px;padding:12px 15px}}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button{transition:none}}
+/* Gerakan kecil, seperti membuka buku sketsa. */
+.intro-pending body{overflow:hidden}
+.site-splash{position:fixed;inset:0;z-index:90;background:var(--paper);display:grid;place-items:center;pointer-events:auto;opacity:1;visibility:visible;transition:opacity .4s ease,visibility .4s}
+.site-splash[hidden]{display:none}
+.intro-pending .site-splash[hidden]{display:grid}
+.intro-finished .site-splash{opacity:0;visibility:hidden;pointer-events:none}
+.splash-note{text-align:center;position:relative;padding:25px;animation:splash-note-in .4s ease both}
+.splash-map{width:58px;height:62px;object-fit:contain;margin:0 auto 18px;animation:paper-wiggle 1.2s ease-in-out infinite}
+.splash-title{font-family:var(--hand);font-size:33px;font-weight:700;line-height:1.35;letter-spacing:-1px;margin:0}
+.splash-title>span{color:#ce7134}
+.splash-stroke{height:5px;width:140px;margin:15px auto 20px;background:var(--orange);border-radius:40% 25% 45% 30%;transform-origin:left;animation:draw-stroke .8s ease both}
+.splash-caption{font-family:var(--hand);font-size:12px;color:var(--muted);margin:0}
+.splash-dots{display:inline-flex;margin-left:2px}
+.splash-dots i{font-style:normal;display:inline-block;animation:ink-dot .7s ease-in-out infinite}
+.splash-dots i:nth-child(2){animation-delay:.12s}
+.splash-dots i:nth-child(3){animation-delay:.24s}
+.intro-finished .hero-copy>*{animation:page-in .65s ease both}
+.intro-finished .hero-copy>:nth-child(2){animation-delay:.07s}
+.intro-finished .hero-copy>:nth-child(3){animation-delay:.14s}
+.intro-finished .hero-copy>:nth-child(4){animation-delay:.21s}
+.intro-finished .hero-copy>:nth-child(5){animation-delay:.28s}
+.intro-finished .marked:after{animation:draw-stroke .7s .35s ease both}
+.hero-art{animation:campus-breathe 22s ease-in-out infinite alternate}
+.scroll-cue span{display:inline-block;animation:arrow-drift 2.5s ease-in-out infinite}
+.margin-note{animation:note-drift 7s ease-in-out infinite}
+.story-icon img{animation:paper-drift 6s ease-in-out infinite}
+.button span,.nav-download span{transition:transform .2s ease}
+.button:hover span,.nav-download:hover span{transform:translate(2px,-2px)}
+.button-primary:hover span{transform:translateY(3px)}
+.brand img{transition:transform .25s ease}
+.brand:hover img{transform:rotate(5deg)}
+.little-details img{transition:transform .25s ease}
+.little-details>span:hover img{transform:translateY(-3px) rotate(-5deg)}
+.motion-enabled [data-reveal]{opacity:0;translate:0 17px;transition:opacity .65s ease,translate .65s ease}
+.motion-enabled [data-reveal].is-visible{opacity:1;translate:0 0}
+.game-photo{transition:transform .3s ease}
+.game-photo:hover{transform:rotate(.3deg) translateY(-3px)}
+dialog[open]{animation:dialog-in .22s ease both}
+.motion-paused *,.motion-paused *:before,.motion-paused *:after{animation-play-state:paused!important}
+@keyframes splash-note-in{from{opacity:0;transform:translateY(8px) rotate(-2deg)}to{opacity:1;transform:translateY(0) rotate(0)}}
+@keyframes paper-wiggle{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(5deg) translateY(-3px)}}
+@keyframes draw-stroke{from{transform:scaleX(0) rotate(-2deg)}to{transform:scaleX(1) rotate(-2deg)}}
+@keyframes ink-dot{0%,100%{opacity:.4;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}
+@keyframes page-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes campus-breathe{from{transform:scale(1)}to{transform:scale(1.045)}}
+@keyframes arrow-drift{0%,100%{transform:translateY(-2px)}50%{transform:translateY(4px)}}
+@keyframes note-drift{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-3px)}}
+@keyframes paper-drift{0%,100%{transform:rotate(-9deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-4px)}}
+@keyframes dialog-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.site-splash,.intro-pending .site-splash[hidden]{display:none}.intro-pending body{overflow:auto}.motion-enabled [data-reveal]{opacity:1;translate:none}.hero-art{transform:none}}
