@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6f3eb">
+    <meta name="description" content="A Little Campus Story — sebuah petualangan kecil tentang kampus, keraguan, dan keberanian untuk terus melangkah. Ikuti kisah Arthur di UNKLAB.">
+    <meta property="og:title" content="A Little Campus Story">
+    <meta property="og:description" content="Satu kampus. Banyak cerita. Mulai perjalananmu bersama Arthur.">
+    <meta property="og:type" content="website">
+    <title>A Little Campus Story</title>
+    <link rel="icon" href="assets/map.webp" type="image/webp">
+    <link rel="stylesheet" href="styles.css">
+    <script src="config.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#utama">Langsung ke isi</a>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="A Little Campus Story, halaman utama">
+        <img src="assets/map.webp" width="38" height="40" alt="">
+        <span>A Little<br>Campus Story<span class="brand-dot">.</span></span>
+      </a>
+      <nav aria-label="Navigasi utama">
+        <a class="nav-about" href="#tentang">Tentang game</a>
+        <a href="#cerita">Cerita Arthur</a>
+        <a class="nav-download" href="#akses" data-access="apk">Unduh game <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="utama">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-art" src="assets/campus.webp" width="1280" height="720" alt="Ilustrasi pensil warna kampus UNKLAB, pepohonan, dan gunung di kejauhan" fetchpriority="high">
+        <div class="hero-wash" aria-hidden="true"></div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="ink-line" aria-hidden="true"></span> SEBUAH PETUALANGAN KECIL</p>
+            <h1 id="hero-title">Satu kampus.<br>Banyak <span class="marked">cerita.</span></h1>
+            <p class="hero-description">Tentang kuliah, keraguan, dan keberanian untuk terus melangkah. Kenali UNKLAB lewat perjalanan Arthur.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#akses" data-access="apk">Unduh untuk Android <span aria-hidden="true">↓</span></a>
+              <a class="text-link" href="#tentang">Kenalan dulu <span aria-hidden="true">↘</span></a>
+            </div>
+            <p class="release-note"><span class="status-dot" aria-hidden="true"></span><span data-release-status>Dalam pengembangan · APK segera hadir</span></p>
+          </div>
+        </div>
+        <p class="margin-note" aria-hidden="true">setiap langkah punya cerita <span>↖</span></p>
+        <a class="scroll-cue" href="#tentang" aria-label="Lihat tentang game"><span aria-hidden="true">↓</span></a>
+      </section>
+
+      <section class="about section-shell" id="tentang" aria-labelledby="about-title">
+        <div class="about-copy">
+          <p class="eyebrow">01 / KENALAN DULU</p>
+          <h2 id="about-title">Kampusnya nyata.<br>Ceritanya dekat.</h2>
+          <p><strong>A Little Campus Story</strong> adalah game petualangan berbasis cerita untuk Android. Ikuti Arthur melewati keseharian mahasiswa, menjelajahi kampus, dan menghadapi keraguannya sendiri.</p>
+          <div class="little-details" aria-label="Gambaran permainan">
+            <span><img src="assets/map.webp" width="32" height="32" alt=""> Jelajahi kampus</span>
+            <span><img src="assets/notes.webp" width="29" height="35" alt=""> Ikuti cerita</span>
+          </div>
+          <p class="handwritten">Pelan-pelan juga tetap melangkah.</p>
+        </div>
+        <figure class="game-photo">
+          <div class="tape tape-left" aria-hidden="true"></div>
+          <img src="assets/gameplay.webp" width="1096" height="626" alt="Arthur dan seorang NPC di lingkungan kampus 3D, dengan kontrol dan antarmuka bergaya gambar tangan" loading="lazy">
+          <figcaption>Sepotong dunia Arthur — dari versi pengembangan.</figcaption>
+        </figure>
+      </section>
+
+      <section class="story section-shell" id="cerita" aria-labelledby="story-title">
+        <div class="story-icon" aria-hidden="true"><img src="assets/notes.webp" width="88" height="110" alt=""></div>
+        <div class="story-copy">
+          <p class="eyebrow">02 / DI BALIK PERJALANAN</p>
+          <h2 id="story-title">Mulai dari Arthur.</h2>
+          <p>Keraguan belum tentu hilang. Tapi Arthur bisa memilih untuk tetap maju. Baca cerita lengkapnya dan kenali dunia di balik permainan.</p>
+          <p class="next-stories">Windy, Drama, dan Syeline? <span>Kisah mereka menunggu giliran.</span></p>
+        </div>
+        <a class="button button-secondary" href="#akses" data-access="story">Baca cerita Arthur <span aria-hidden="true">↗</span></a>
+      </section>
+
+      <section class="access section-shell" id="akses" aria-labelledby="access-title">
+        <div>
+          <p class="eyebrow">SAMPAI KETEMU DI KAMPUS</p>
+          <h2 id="access-title">Siap melangkah?</h2>
+          <p data-access-description>Versi Android sedang disiapkan. Perjalanannya segera dimulai.</p>
+        </div>
+        <a class="button button-primary" href="#akses" data-access="apk">Unduh game <span aria-hidden="true">↓</span></a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>A Little Campus Story</span>
+      <p>Sebuah cerita kecil oleh Chipzzz.</p>
+      <a href="#utama">Kembali ke atas <span aria-hidden="true">↑</span></a>
+    </footer>
+
+    <dialog id="availability-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Tutup informasi" value="close">×</button>
+        <p class="eyebrow">SEGERA HADIR</p>
+        <h2 id="dialog-title">Perjalanannya sedang disiapkan.</h2>
+        <p id="dialog-description">Versi Android belum tersedia untuk diunduh. Kunjungi halaman ini lagi saat game dirilis.</p>
+        <button class="button button-primary" value="close">Oke, kutunggu <span aria-hidden="true">✓</span></button>
+      </form>
+    </dialog>
+  </body>
+</html>
