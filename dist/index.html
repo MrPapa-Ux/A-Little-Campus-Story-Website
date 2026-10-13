@@ -9,16 +9,7 @@
     <meta property="og:description" content="Satu kampus. Banyak cerita. Mulai perjalananmu bersama Arthur.">
     <meta property="og:type" content="website">
     <title>A Little Campus Story</title>
-    <script>
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.documentElement.classList.add("intro-pending");
-        window.CAMPUS_INTRO_STARTED = performance.now();
-        window.CAMPUS_INTRO_FAILSAFE = window.setTimeout(() => {
-          document.documentElement.classList.remove("intro-pending");
-          document.documentElement.classList.add("intro-finished");
-        }, 2600);
-      }
-    </script>
+    <script src="intro.js"></script>
     <link rel="icon" href="assets/map.webp" type="image/webp">
     <link rel="stylesheet" href="styles.css">
     <script src="config.js" defer></script>

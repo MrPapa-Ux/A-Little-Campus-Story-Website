@@ -35,10 +35,10 @@
   };
 
   function getPublicLink(value) {
-    if (typeof value !== "string" || !value.trim()) return null;
+    if (typeof value !== "string" || !value.trim() || value.length > 2048 || /[\u0000-\u001f\u007f]/.test(value)) return null;
     try {
       const url = new URL(value.trim());
-      return url.protocol === "https:" ? url.href : null;
+      return url.protocol === "https:" && !url.username && !url.password ? url.href : null;
     } catch {
       return null;
     }

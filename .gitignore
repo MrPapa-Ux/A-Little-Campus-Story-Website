@@ -1,3 +1,12 @@
 .vercel/
 .DS_Store
 Thumbs.db
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.keystore
+*.jks
+node_modules/
