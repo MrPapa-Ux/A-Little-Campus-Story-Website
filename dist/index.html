@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f6f3eb">
-    <meta name="description" content="A Little Campus Story — sebuah petualangan kecil tentang kampus, keraguan, dan keberanian untuk terus melangkah. Ikuti kisah Arthur di UNKLAB.">
+    <meta name="description" content="A Little Campus Story, demo permainan Android berbasis cerita untuk mengenal lingkungan Universitas Klabat melalui perjalanan Arthur.">
     <meta property="og:title" content="A Little Campus Story">
-    <meta property="og:description" content="Satu kampus. Banyak cerita. Mulai perjalananmu bersama Arthur.">
+    <meta property="og:description" content="Kenali lingkungan Universitas Klabat melalui demo Chapter 1 dan mode eksplorasi.">
     <meta property="og:type" content="website">
     <title>A Little Campus Story</title>
     <script src="intro.js"></script>
@@ -21,7 +21,7 @@
         <img class="splash-map" src="assets/map.webp" width="64" height="68" alt="">
         <p class="splash-title">A Little<br>Campus Story<span>.</span></p>
         <div class="splash-stroke"></div>
-        <p class="splash-caption">membuka lembar cerita<span class="splash-dots"><i>.</i><i>.</i><i>.</i></span></p>
+        <p class="splash-caption">Memuat halaman<span class="splash-dots"><i>.</i><i>.</i><i>.</i></span></p>
       </div>
     </div>
     <a class="skip-link" href="#utama">Langsung ke isi</a>
@@ -31,9 +31,9 @@
         <span>A Little<br>Campus Story<span class="brand-dot">.</span></span>
       </a>
       <nav aria-label="Navigasi utama">
-        <a class="nav-about" href="#tentang">Tentang game</a>
+        <a class="nav-about" href="#tentang">Tentang permainan</a>
         <a href="#cerita">Cerita Arthur</a>
-        <a class="nav-download" href="#akses" data-access="apk">Unduh game <span aria-hidden="true">↗</span></a>
+        <a class="nav-download" href="https://drive.google.com/drive/folders/19j5pwIUJdaUuyLEH63E-CG3DW85N7mn_?usp=drive_link" target="_blank" rel="noopener noreferrer" data-access="apk">Unduh demo <span aria-hidden="true">↗</span></a>
       </nav>
     </header>
 
@@ -41,74 +41,90 @@
       <section class="hero" aria-labelledby="hero-title">
         <img class="hero-art" src="assets/campus.webp" width="1280" height="720" alt="Ilustrasi pensil warna kampus UNKLAB, pepohonan, dan gunung di kejauhan" fetchpriority="high">
         <div class="hero-wash" aria-hidden="true"></div>
+        <div class="campus-atmosphere" aria-hidden="true">
+          <span class="sky-bird sky-bird-one"><i></i><i></i></span>
+          <span class="sky-bird sky-bird-two"><i></i><i></i></span>
+          <span class="wind wind-one"></span><span class="wind wind-two"></span>
+          <span class="wind-leaf leaf-one"></span><span class="wind-leaf leaf-two"></span>
+          <span class="wind-leaf leaf-three"></span><span class="wind-leaf leaf-four"></span>
+        </div>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow"><span class="ink-line" aria-hidden="true"></span> SEBUAH PETUALANGAN KECIL</p>
-            <h1 id="hero-title">Satu kampus.<br>Banyak <span class="marked">cerita.</span></h1>
-            <p class="hero-description">Tentang kuliah, keraguan, dan keberanian untuk terus melangkah. Kenali UNKLAB lewat perjalanan Arthur.</p>
+            <p class="eyebrow"><span class="ink-line" aria-hidden="true"></span> DEMO PERMAINAN ANDROID</p>
+            <h1 id="hero-title">Mengenal kampus.<br>Melalui <span class="marked">cerita.</span></h1>
+            <p class="hero-description">Jelajahi lingkungan Universitas Klabat melalui perjalanan Arthur. Demo Chapter 1 menghadirkan misi, percakapan, dan pengenalan fasilitas kampus.</p>
             <div class="hero-actions">
-              <a class="button button-primary" href="#akses" data-access="apk">Unduh untuk Android <span aria-hidden="true">↓</span></a>
-              <a class="text-link" href="#tentang">Kenalan dulu <span aria-hidden="true">↘</span></a>
+              <a class="button button-primary" href="https://drive.google.com/drive/folders/19j5pwIUJdaUuyLEH63E-CG3DW85N7mn_?usp=drive_link" target="_blank" rel="noopener noreferrer" data-access="apk">Unduh untuk Android <span aria-hidden="true">↓</span></a>
+              <a class="text-link" href="#tentang">Tentang permainan <span aria-hidden="true">↘</span></a>
             </div>
-            <p class="release-note"><span class="status-dot" aria-hidden="true"></span><span data-release-status>Dalam pengembangan · APK segera hadir</span></p>
+            <p class="release-note"><span class="status-dot" aria-hidden="true"></span><span data-release-status>Demo Android tersedia · Berkas APK di Google Drive</span></p>
           </div>
         </div>
-        <p class="margin-note" aria-hidden="true">setiap langkah punya cerita <span>↖</span></p>
+        <p class="margin-note" aria-hidden="true"><svg class="perched-bird" width="46" height="37" viewBox="0 0 46 37" fill="none"><path d="M10 28L3 31L8 21C6 11 20 9 24 16C28 15 31 18 31 20L38 22L31 24C28 31 18 32 12 29M19 31L18 36M24 30L24 36" fill="#555f47" stroke="#303c2c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 20Q15 27 23 24" stroke="#e8dfbd" stroke-width="1.3" stroke-linecap="round"/><circle cx="27" cy="20" r="1" fill="#f6f3eb"/></svg>Universitas Klabat <span>↖</span></p>
+        <button class="ambient-toggle" type="button" aria-pressed="false">Jeda animasi</button>
         <a class="scroll-cue" href="#tentang" aria-label="Lihat tentang game"><span aria-hidden="true">↓</span></a>
       </section>
 
       <section class="about section-shell" id="tentang" aria-labelledby="about-title">
         <div class="about-copy" data-reveal>
-          <p class="eyebrow">01 / KENALAN DULU</p>
-          <h2 id="about-title">Kampusnya nyata.<br>Ceritanya dekat.</h2>
-          <p><strong>A Little Campus Story</strong> adalah game petualangan berbasis cerita untuk Android. Ikuti Arthur melewati keseharian mahasiswa, menjelajahi kampus, dan menghadapi keraguannya sendiri.</p>
+          <p class="eyebrow">01 / TENTANG PERMAINAN</p>
+          <h2 id="about-title">Lingkungan kampus.<br>Pengalaman interaktif.</h2>
+          <p><strong>A Little Campus Story</strong> merupakan permainan petualangan berbasis cerita untuk Android. Pemain mengikuti kegiatan Arthur, menyelesaikan misi, serta mengenal lokasi dan fungsi fasilitas di lingkungan Universitas Klabat.</p>
           <div class="little-details" aria-label="Gambaran permainan">
-            <span><img src="assets/map.webp" width="32" height="32" alt=""> Jelajahi kampus</span>
-            <span><img src="assets/notes.webp" width="29" height="35" alt=""> Ikuti cerita</span>
+            <span><img src="assets/map.webp" width="32" height="32" alt=""> Navigasi kampus</span>
+            <span><img src="assets/notes.webp" width="29" height="35" alt=""> Misi dan percakapan</span>
           </div>
-          <p class="handwritten">Pelan-pelan juga tetap melangkah.</p>
+          <p class="handwritten">Mode eksplorasi terbuka setelah Chapter 1 diselesaikan.</p>
         </div>
         <figure class="game-photo" data-reveal>
           <div class="tape tape-left" aria-hidden="true"></div>
           <img src="assets/gameplay.webp" width="1096" height="626" alt="Arthur dan seorang NPC di lingkungan kampus 3D, dengan kontrol dan antarmuka bergaya gambar tangan" loading="lazy">
-          <figcaption>Sepotong dunia Arthur — dari versi pengembangan.</figcaption>
+          <figcaption>Tampilan permainan dalam versi pengembangan.</figcaption>
         </figure>
       </section>
 
       <section class="story section-shell" id="cerita" aria-labelledby="story-title">
         <div class="story-icon" data-reveal aria-hidden="true"><img src="assets/notes.webp" width="88" height="110" alt=""></div>
         <div class="story-copy" data-reveal>
-          <p class="eyebrow">02 / DI BALIK PERJALANAN</p>
-          <h2 id="story-title">Mulai dari Arthur.</h2>
-          <p>Keraguan belum tentu hilang. Tapi Arthur bisa memilih untuk tetap maju. Baca cerita lengkapnya dan kenali dunia di balik permainan.</p>
-          <p class="next-stories">Windy, Drama, dan Syeline? <span>Kisah mereka menunggu giliran.</span></p>
+          <p class="eyebrow">02 / CERITA ARTHUR</p>
+          <h2 id="story-title">Chapter 1: Arthur</h2>
+          <p>Chapter 1 mengikuti Arthur menghadapi tugas dan keraguan dalam kehidupan perkuliahan. Cerita pendamping tersedia melalui Wattpad.</p>
+          <p class="next-stories">Kisah karakter lainnya <span>direncanakan untuk pengembangan berikutnya.</span></p>
         </div>
-        <a class="button button-secondary" href="#akses" data-access="story">Baca cerita Arthur <span aria-hidden="true">↗</span></a>
+        <a class="button button-secondary" href="https://www.wattpad.com/story/415653090-a-little-campus-story" target="_blank" rel="noopener noreferrer" data-access="story">Baca cerita Arthur <span aria-hidden="true">↗</span></a>
       </section>
 
       <section class="access section-shell" id="akses" aria-labelledby="access-title">
         <div data-reveal>
-          <p class="eyebrow">SAMPAI KETEMU DI KAMPUS</p>
-          <h2 id="access-title">Siap melangkah?</h2>
-          <p data-access-description>Versi Android sedang disiapkan. Perjalanannya segera dimulai.</p>
+          <p class="eyebrow">03 / UNDUHAN</p>
+          <h2 id="access-title">Unduh demo Android</h2>
+          <p data-access-description>Tombol unduh membuka folder Google Drive yang berisi berkas permainan.</p>
         </div>
-        <a class="button button-primary" href="#akses" data-access="apk">Unduh game <span aria-hidden="true">↓</span></a>
+        <a class="button button-primary" href="https://drive.google.com/drive/folders/19j5pwIUJdaUuyLEH63E-CG3DW85N7mn_?usp=drive_link" target="_blank" rel="noopener noreferrer" data-access="apk">Unduh demo <span aria-hidden="true">↓</span></a>
+      </section>
+      <section class="download-guide section-shell" aria-labelledby="download-guide-title">
+        <h3 id="download-guide-title">Cara mengunduh</h3>
+        <ol>
+          <li><span>01</span><div><strong>Buka folder unduhan</strong><p>Pilih tombol unduh untuk membuka Google Drive di tab baru.</p></div></li>
+          <li><span>02</span><div><strong>Pilih berkas APK</strong><p>Unduh berkas permainan yang tersedia pada folder tersebut.</p></div></li>
+          <li><span>03</span><div><strong>Pasang di perangkat Android</strong><p>Buka berkas yang telah diunduh, lalu ikuti petunjuk pemasangan pada perangkat.</p></div></li>
+        </ol>
       </section>
     </main>
 
     <footer class="site-footer">
       <span>A Little Campus Story</span>
-      <p>Sebuah cerita kecil oleh Chipzzz.</p>
+      <p>Dikembangkan oleh Glenvidi Yosua Arthur Gerungan · Chipzzz.</p>
       <a href="#utama">Kembali ke atas <span aria-hidden="true">↑</span></a>
     </footer>
 
     <dialog id="availability-dialog" aria-labelledby="dialog-title" aria-describedby="dialog-description">
       <form method="dialog">
         <button class="dialog-close" aria-label="Tutup informasi" value="close">×</button>
-        <p class="eyebrow">SEGERA HADIR</p>
-        <h2 id="dialog-title">Perjalanannya sedang disiapkan.</h2>
-        <p id="dialog-description">Versi Android belum tersedia untuk diunduh. Kunjungi halaman ini lagi saat game dirilis.</p>
-        <button class="button button-primary" value="close">Oke, kutunggu <span aria-hidden="true">✓</span></button>
+        <p class="eyebrow">INFORMASI AKSES</p>
+        <h2 id="dialog-title">Unduhan belum tersedia.</h2>
+        <p id="dialog-description">Berkas Android belum tersedia pada tautan ini. Silakan periksa kembali kemudian.</p>
+        <button class="button button-primary" value="close">Tutup <span aria-hidden="true">✓</span></button>
       </form>
     </dialog>
   </body>

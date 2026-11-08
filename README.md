@@ -14,7 +14,7 @@ Untuk APK di Google Drive, bagikan file APK dengan akses **Anyone with the link 
 2. Framework: **Other**. Build Command dan Install Command: kosong. Output Directory: **dist**. Pengaturan juga tersedia di `vercel.json`.
 3. Deploy. Jika memakai repository tersendiri, gunakan root repository sebagai Root Directory.
 
-Sumber lokal belum berisi tautan APK dan cerita. Tambahkan tautan saat berkas siap; status versi online perlu diperiksa pada URL deployment yang digunakan.
+Tautan unduh mengarah ke folder Google Drive milik pengembang. Pengunjung memilih APK di dalam folder tersebut. Tautan cerita mengarah ke Wattpad. Seluruh tombol memakai href HTTPS langsung agar tetap berfungsi tanpa JavaScript.
 
 ## Preview lokal
 
@@ -44,3 +44,11 @@ Saat APK tersedia, bagikan file rilis yang ditandatangani, peran Viewer di Googl
 
 Rujukan konfigurasi: https://vercel.com/docs/project-configuration/vercel-json#headers
 Rujukan CSP: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy
+
+## Revisi 8 November 2026
+
+- Bahasa halaman disesuaikan menjadi lebih formal, dengan cakupan demo Chapter 1 dan ketentuan pembukaan mode eksplorasi.
+- Petunjuk unduh menjelaskan alur website, folder Drive, lalu berkas APK.
+- Suasana ringan memakai siluet burung, burung hinggap, daun, dan hembusan angin melalui CSS/SVG lokal; tidak ada video, pustaka, atau permintaan pihak ketiga tambahan.
+- Tombol Jeda animasi dan preferensi reduced motion menghentikan gerakan.
+- Header keamanan Vercel dipertahankan. Pemeriksaan desktop dan ponsel menggunakan CSP yang sama.

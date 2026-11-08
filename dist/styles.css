@@ -132,3 +132,38 @@ dialog[open]{animation:dialog-in .22s ease both}
 @keyframes paper-drift{0%,100%{transform:rotate(-9deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-4px)}}
 @keyframes dialog-in{from{opacity:0;transform:translateY(8px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.site-splash,.intro-pending .site-splash[hidden]{display:none}.intro-pending body{overflow:auto}.motion-enabled [data-reveal]{opacity:1;translate:none}.hero-art{transform:none}}
+
+/* Suasana kampus: siluet tinta dan daun, tanpa video atau pustaka tambahan. */
+.campus-atmosphere{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.sky-bird{position:absolute;display:flex;width:29px;height:13px;opacity:0;animation:bird-cross 26s linear infinite}
+.sky-bird i{width:15px;height:10px;border-top:2px solid #344438;border-radius:80% 80% 0 0;transform-origin:100% 50%;animation:wing-left 1.4s ease-in-out infinite alternate}
+.sky-bird i+i{transform-origin:0 50%;animation-name:wing-right}
+.sky-bird-one{top:13%;left:59%;animation-delay:-8s}
+.sky-bird-two{top:19%;left:67%;scale:.65;animation-duration:31s;animation-delay:-16s}
+.wind{position:absolute;left:66%;width:150px;height:22px;border-top:1px solid #f9fcf0;border-radius:50%;opacity:0;animation:wind-pass 17s ease-in-out infinite}
+.wind-one{top:50%;animation-delay:-5s}.wind-two{top:71%;left:80%;width:110px;animation-delay:-12s;animation-duration:21s}
+.wind-leaf{position:absolute;width:11px;height:5px;border-radius:85% 0 80% 0;background:#74865a;opacity:0;animation:leaf-pass 22s ease-in-out infinite}
+.leaf-one{left:69%;top:37%;animation-delay:-4s}
+.leaf-two{left:85%;top:52%;width:8px;animation-delay:-13s;animation-duration:27s;background:#ae925d}
+.leaf-three{left:61%;top:70%;animation-delay:-19s;animation-duration:29s}
+.leaf-four{left:90%;top:28%;width:7px;animation-delay:-9s;animation-duration:24s}
+.perched-bird{position:absolute;top:-33px;right:21px;transform-origin:50% 100%;animation:bird-perch 10s ease-in-out infinite}
+.margin-note>span{margin-left:6px}
+.ambient-toggle{position:absolute;bottom:23px;left:5.2%;padding:6px 10px;border:1px solid #8d9480;border-radius:4px;background:#f6f3ebd9;color:#4d5744;font:inherit;font-size:11px;cursor:pointer;min-height:34px}
+.ambient-toggle:hover{background:#fffdf4}
+.ambient-paused *,.ambient-paused *::before,.ambient-paused *::after{animation-play-state:paused!important}
+.download-guide{border-top:1px solid var(--line);padding:30px 0 55px}
+.download-guide h3{margin:0 0 23px;font-family:var(--hand);font-size:21px;letter-spacing:-.5px}
+.download-guide ol{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;list-style:none;margin:0;padding:0}
+.download-guide li{display:flex;gap:13px;align-items:flex-start}
+.download-guide li>span{font-size:11px;line-height:2.2;color:#a65c29;border-bottom:2px solid var(--orange)}
+.download-guide strong{font-size:13px;font-weight:650;display:block;margin:0 0 5px}
+.download-guide p{font-size:12px;line-height:1.8;color:var(--muted);margin:0;max-width:300px}
+@keyframes bird-cross{0%,6%{opacity:0;transform:translate(-70px,22px) rotate(-4deg)}12%,69%{opacity:.7}78%,100%{opacity:0;transform:translate(330px,-48px) rotate(4deg)}}
+@keyframes wing-left{from{transform:rotate(-7deg) scaleY(.6)}to{transform:rotate(13deg) scaleY(1)}}
+@keyframes wing-right{from{transform:rotate(7deg) scaleY(.6)}to{transform:rotate(-13deg) scaleY(1)}}
+@keyframes wind-pass{0%,20%{opacity:0;transform:translateX(-45px)}36%{opacity:.5}58%,100%{opacity:0;transform:translateX(100px)}}
+@keyframes leaf-pass{0%,13%{opacity:0;transform:translate(-24px,-16px) rotate(-20deg)}24%,55%{opacity:.6}75%,100%{opacity:0;transform:translate(115px,72px) rotate(190deg)}}
+@keyframes bird-perch{0%,12%,20%,67%,76%,100%{transform:rotate(0)}16%{transform:rotate(-7deg)}71%{transform:rotate(5deg)}}
+@media(max-width:700px){.campus-atmosphere{height:340px}.sky-bird-one{left:18%}.sky-bird-two{left:35%}.wind-one{left:25%}.leaf-one{left:22%}.leaf-three{left:38%}.ambient-toggle{bottom:17px;font-size:10px}.download-guide{padding:26px 0 40px}.download-guide ol{grid-template-columns:1fr;gap:22px}.download-guide p{max-width:none}.hero-description{max-width:430px}}
+@media(prefers-reduced-motion:reduce){.campus-atmosphere,.perched-bird,.ambient-toggle{display:none}}
