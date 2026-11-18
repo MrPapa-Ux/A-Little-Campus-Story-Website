@@ -167,10 +167,6 @@ dialog[open]{animation:dialog-in .22s ease both}
 .download-copy h2{margin:0 0 8px}
 .download-copy p{max-width:32ch;margin:0;color:var(--muted)}
 .download-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 21px;margin-top:23px}
-.download-art{position:relative;min-height:225px;overflow:hidden;border-left:1.5px solid var(--ink)}
-.download-campus{display:block;width:100%;height:100%;position:absolute;inset:0;object-fit:cover;object-position:53% 50%}
-.download-map{position:absolute;right:7%;bottom:10%;width:clamp(40px,7vw,68px);height:auto;rotate:8deg;filter:drop-shadow(2px 4px 0 #20160640);transition:rotate .2s,translate .2s}
-.download-card:focus-within .download-map,.download-card:hover .download-map{rotate:2deg;translate:0 -5px}
 .download-help{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:24px;align-items:start}
 .download-help details{background:#fbfaf6;border:1px solid #65594a;border-radius:4px 8px 4px 8px;padding:0 17px}
 .download-help summary{min-height:52px;align-content:center;cursor:pointer;font-weight:650;color:var(--ink)}
@@ -181,7 +177,6 @@ dialog[open]{animation:dialog-in .22s ease both}
 @media(max-width:700px){
   .access{padding:40px 0 56px}
   .download-card,.download-help{grid-template-columns:minmax(0,1fr)}
-  .download-art{grid-row:1;min-height:140px;border-left:0;border-bottom:1.5px solid var(--ink)}
   .download-copy h2{font-size:30px}
 }
 
@@ -190,3 +185,16 @@ dialog[open]{animation:dialog-in .22s ease both}
 .checksum-actions button{padding:6px 9px;min-height:38px;border-radius:4px;border:1px solid var(--ink);background:#faf1db;color:var(--ink);cursor:pointer}
 .checksum-actions button:hover{background:#f9e2a9}
 .checksum-feedback:empty{display:none}
+
+.download-gallery{min-width:0;align-self:stretch;border-left:1.5px solid var(--ink);background:#fbfaf6}
+.download-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-color:#9e8565 #eee4d2}
+.download-track:focus-visible{outline:2px solid #9a4a22;outline-offset:-3px}
+.download-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;margin:0}
+.download-slide img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#242720}
+.download-slide figcaption{padding:8px 12px;color:var(--ink);font-family:var(--hand);font-size:15px;text-align:center}
+.download-gallery-controls:not([hidden]){display:flex;align-items:center;justify-content:center;gap:14px;padding:6px 12px 10px}
+.download-gallery-controls button{width:44px;height:44px;border:1px solid var(--ink);border-radius:4px 7px 5px 6px;background:#fbf0d9;color:var(--ink);font-size:19px;cursor:pointer}
+.download-gallery-controls button:hover:not(:disabled){background:var(--orange)}
+.download-gallery-controls button:disabled{opacity:.38;cursor:default}
+.download-gallery-controls p{margin:0;min-width:52px;text-align:center;font-size:13px}
+@media(max-width:700px){.download-gallery{border-left:0;border-top:1.5px solid var(--ink)}}

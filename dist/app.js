@@ -19,6 +19,50 @@
     finishIntro();
   }
 
+  const track = document.querySelector("#download-track");
+  if (track) {
+    const slides = Array.from(track.children);
+    const controls = document.querySelector("[data-gallery-controls]");
+    const prev = controls.querySelector("[data-gallery-prev]");
+    const next = controls.querySelector("[data-gallery-next]");
+    const count = controls.querySelector("[data-gallery-count]");
+    const last = slides.length - 1;
+    let index = 0;
+    let target = null;
+    let frame = 0;
+
+    function syncGallery() {
+      frame = 0;
+      if (!track.clientWidth) return;
+      index = Math.min(last, Math.max(0, Math.round(track.scrollLeft / track.clientWidth)));
+      if (target === index) target = null;
+      prev.disabled = index === 0;
+      next.disabled = index === last;
+      const text = `${index + 1} / ${slides.length}`;
+      if (count.textContent !== text) count.textContent = text;
+    }
+
+    function chooseSlide(position) {
+      target = Math.min(last, Math.max(0, position));
+      track.scrollTo({ left: target * track.clientWidth, behavior: reducedMotion.matches ? "instant" : "smooth" });
+    }
+
+    prev.addEventListener("click", () => chooseSlide((target ?? index) - 1));
+    next.addEventListener("click", () => chooseSlide((target ?? index) + 1));
+    track.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      chooseSlide((target ?? index) + (event.key === "ArrowLeft" ? -1 : 1));
+    });
+    track.addEventListener("scroll", () => {
+      if (!frame) frame = requestAnimationFrame(syncGallery);
+    }, { passive: true });
+    track.addEventListener("pointerdown", () => { target = null; }, { passive: true });
+    window.addEventListener("resize", () => { target = null; syncGallery(); });
+    if (slides.length > 1) controls.hidden = false;
+    syncGallery();
+  }
+
   const copyChecksum = document.querySelector("[data-copy-checksum]");
   if (copyChecksum && navigator.clipboard?.writeText) {
     copyChecksum.hidden = false;
