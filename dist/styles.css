@@ -192,7 +192,7 @@ dialog[open]{animation:dialog-in .22s ease both}
 .download-track::-webkit-scrollbar{display:none}
 .download-track:focus-visible{outline:2px solid #9a4a22;outline-offset:-3px}
 .download-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;margin:0}
-.download-slide img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#242720}
+.download-slide img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;background:#242720}
 .download-slide figcaption{padding:8px 52px;color:var(--ink);font-family:var(--hand);font-size:15px;text-align:center}
 .download-arrows button{
   position:absolute;top:calc(50% - 19px);translate:0 -50%;width:44px;height:44px;
@@ -208,11 +208,4 @@ dialog[open]{animation:dialog-in .22s ease both}
   opacity:1;background:var(--orange);color:var(--ink);scale:1.06
 }
 .download-arrows button:disabled{opacity:.2;cursor:default}
-.download-gallery-controls:not([hidden]){display:flex;align-items:center;justify-content:center;gap:12px;padding:0 12px 8px}
-.download-gallery-controls p{margin:0;min-width:42px;text-align:center;font-size:12px;color:var(--muted)}
-.download-gallery-controls button{
-  min-height:36px;padding:4px 10px;border:0;border-radius:20px;
-  background:transparent;color:var(--ink);cursor:pointer;font-size:12px
-}
-.download-gallery-controls button:hover,.download-gallery-controls button:focus-visible{background:#eee4d2}
 @media(max-width:700px){.download-gallery{border-left:0;border-top:1.5px solid var(--ink)}}
