@@ -19,6 +19,21 @@
     finishIntro();
   }
 
+  const copyChecksum = document.querySelector("[data-copy-checksum]");
+  if (copyChecksum && navigator.clipboard?.writeText) {
+    copyChecksum.hidden = false;
+    copyChecksum.addEventListener("click", async () => {
+      const checksum = document.querySelector("[data-checksum]");
+      const feedback = document.querySelector("[data-checksum-feedback]");
+      try {
+        await navigator.clipboard.writeText(checksum.textContent.trim());
+        feedback.textContent = "SHA-256 disalin.";
+      } catch {
+        feedback.textContent = "Pilih dan salin kode di atas.";
+      }
+    });
+  }
+
   const motionToggle = document.querySelector(".ambient-toggle");
   motionToggle?.addEventListener("click", () => {
     const paused = root.classList.toggle("ambient-paused");
@@ -71,11 +86,6 @@
       });
     }
   });
-
-  if (getPublicLink(links.apk)) {
-    document.querySelector("[data-release-status]").textContent = "Demo Android tersedia · Berkas APK di Google Drive";
-    document.querySelector("[data-access-description]").textContent = "Tombol unduh membuka folder Google Drive yang berisi berkas permainan.";
-  }
 
   dialog?.addEventListener("click", (event) => {
     const box = dialog.getBoundingClientRect();
