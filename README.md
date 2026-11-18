@@ -6,7 +6,7 @@ Landing page ringan dengan ilustrasi dan ikon dari proyek Unity. Seluruh file we
 
 Isi `apk` dan `story` di `dist/config.js` dengan tautan HTTPS yang sudah bisa dibuka pengunjung. Tautan kosong menampilkan informasi “Segera hadir” saat tombol ditekan. Tidak ada tautan contoh yang menyamar sebagai unduhan nyata.
 
-APK dipublikasikan melalui GitHub Releases di repositori aset. Saat mengganti build, perbarui tautan rilis, versi, ukuran, tanggal, dan checksum di halaman unduhan.
+Folder Google Drive adalah tujuan utama tombol Unduh. APK juga tersedia pada halaman GitHub Releases di repositori aset. Saat mengganti APK GitHub, perbarui tautan rilis, versi, ukuran, tanggal, dan checksum di halaman unduhan.
 
 ## Vercel
 
@@ -14,7 +14,7 @@ APK dipublikasikan melalui GitHub Releases di repositori aset. Saat mengganti bu
 2. Framework: **Other**. Build Command dan Install Command: kosong. Output Directory: **dist**. Pengaturan juga tersedia di `vercel.json`.
 3. Deploy. Jika memakai repository tersendiri, gunakan root repository sebagai Root Directory.
 
-Tombol Unduh mengarah ke berkas APK pada GitHub Releases. Tautan cerita mengarah ke Wattpad. Tautan APK dan cerita tetap berfungsi tanpa JavaScript.
+Tombol Unduh membuka folder Google Drive. Tautan APK di GitHub membuka halaman rilis yang tetap dapat dikunjungi untuk membaca catatan build atau memilih berkas. Tautan utama dan tautan cerita tetap berfungsi tanpa JavaScript.
 
 ## Preview lokal
 
