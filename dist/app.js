@@ -20,16 +20,31 @@
   }
 
   const track = document.querySelector("#download-track");
-  if (track) {
-    const slides = Array.from(track.children);
-    const controls = document.querySelector("[data-gallery-controls]");
-    const prev = controls.querySelector("[data-gallery-prev]");
-    const next = controls.querySelector("[data-gallery-next]");
+  if (track && track.children.length > 1) {
+    const gallery = track.closest(".download-gallery");
+    const arrows = gallery.querySelector("[data-gallery-arrows]");
+    const controls = gallery.querySelector("[data-gallery-controls]");
+    const prev = arrows.querySelector("[data-gallery-prev]");
+    const next = arrows.querySelector("[data-gallery-next]");
+    const toggle = controls.querySelector("[data-gallery-toggle]");
     const count = controls.querySelector("[data-gallery-count]");
-    const last = slides.length - 1;
+    const last = track.children.length - 1;
+    const canHover = window.matchMedia("(hover: hover)");
     let index = 0;
     let target = null;
     let frame = 0;
+    let timer = 0;
+    let visible = !("IntersectionObserver" in window);
+    let playing = !reducedMotion.matches;
+
+    function scheduleGallery() {
+      window.clearTimeout(timer);
+      const paused = !playing || !visible || document.hidden ||
+        (canHover.matches && gallery.matches(":hover")) ||
+        document.activeElement === track || gallery.querySelector(":focus-visible");
+      count.setAttribute("aria-live", paused ? "polite" : "off");
+      if (!paused) timer = window.setTimeout(() => chooseSlide(index === last ? 0 : index + 1, index === last), 5000);
+    }
 
     function syncGallery() {
       frame = 0;
@@ -38,17 +53,25 @@
       if (target === index) target = null;
       prev.disabled = index === 0;
       next.disabled = index === last;
-      const text = `${index + 1} / ${slides.length}`;
+      const text = (index + 1) + " / " + (last + 1);
       if (count.textContent !== text) count.textContent = text;
     }
 
-    function chooseSlide(position) {
+    function chooseSlide(position, wrap = false) {
       target = Math.min(last, Math.max(0, position));
-      track.scrollTo({ left: target * track.clientWidth, behavior: reducedMotion.matches ? "instant" : "smooth" });
+      track.scrollTo({ left: target * track.clientWidth, behavior: wrap || reducedMotion.matches ? "instant" : "smooth" });
+      scheduleGallery();
+    }
+
+    function setPlaying(value) {
+      playing = value;
+      toggle.textContent = playing ? "Jeda galeri" : "Putar galeri";
+      scheduleGallery();
     }
 
     prev.addEventListener("click", () => chooseSlide((target ?? index) - 1));
     next.addEventListener("click", () => chooseSlide((target ?? index) + 1));
+    toggle.addEventListener("click", () => setPlaying(!playing));
     track.addEventListener("keydown", (event) => {
       if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
       event.preventDefault();
@@ -56,11 +79,26 @@
     });
     track.addEventListener("scroll", () => {
       if (!frame) frame = requestAnimationFrame(syncGallery);
+      scheduleGallery();
     }, { passive: true });
-    track.addEventListener("pointerdown", () => { target = null; }, { passive: true });
-    window.addEventListener("resize", () => { target = null; syncGallery(); });
-    if (slides.length > 1) controls.hidden = false;
+    for (const event of ["pointerdown", "wheel"]) {
+      track.addEventListener(event, () => { target = null; scheduleGallery(); }, { passive: true });
+    }
+    for (const event of ["mouseenter", "mouseleave", "focusin", "focusout"]) {
+      gallery.addEventListener(event, () => requestAnimationFrame(scheduleGallery));
+    }
+    document.addEventListener("visibilitychange", scheduleGallery);
+    window.addEventListener("resize", () => { target = null; syncGallery(); scheduleGallery(); });
+    reducedMotion.addEventListener("change", () => setPlaying(!reducedMotion.matches));
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => {
+        visible = entry.intersectionRatio >= .35;
+        scheduleGallery();
+      }, { threshold: .35 }).observe(gallery);
+    }
+    arrows.hidden = controls.hidden = false;
     syncGallery();
+    setPlaying(playing);
   }
 
   const copyChecksum = document.querySelector("[data-copy-checksum]");

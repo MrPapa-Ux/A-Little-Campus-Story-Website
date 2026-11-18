@@ -187,14 +187,32 @@ dialog[open]{animation:dialog-in .22s ease both}
 .checksum-feedback:empty{display:none}
 
 .download-gallery{min-width:0;align-self:stretch;border-left:1.5px solid var(--ink);background:#fbfaf6}
-.download-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-color:#9e8565 #eee4d2}
+.download-viewport{position:relative}
+.download-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none}
+.download-track::-webkit-scrollbar{display:none}
 .download-track:focus-visible{outline:2px solid #9a4a22;outline-offset:-3px}
 .download-slide{flex:0 0 100%;min-width:0;scroll-snap-align:start;margin:0}
 .download-slide img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:contain;background:#242720}
-.download-slide figcaption{padding:8px 12px;color:var(--ink);font-family:var(--hand);font-size:15px;text-align:center}
-.download-gallery-controls:not([hidden]){display:flex;align-items:center;justify-content:center;gap:14px;padding:6px 12px 10px}
-.download-gallery-controls button{width:44px;height:44px;border:1px solid var(--ink);border-radius:4px 7px 5px 6px;background:#fbf0d9;color:var(--ink);font-size:19px;cursor:pointer}
-.download-gallery-controls button:hover:not(:disabled){background:var(--orange)}
-.download-gallery-controls button:disabled{opacity:.38;cursor:default}
-.download-gallery-controls p{margin:0;min-width:52px;text-align:center;font-size:13px}
+.download-slide figcaption{padding:8px 52px;color:var(--ink);font-family:var(--hand);font-size:15px;text-align:center}
+.download-arrows button{
+  position:absolute;top:calc(50% - 19px);translate:0 -50%;width:44px;height:44px;
+  display:grid;place-items:center;border:1px solid #ffffff75;border-radius:50%;
+  background:#1c211ee6;color:#fff;font-size:20px;cursor:pointer;opacity:.52;
+  transition:opacity .18s,background .18s,color .18s,scale .18s;
+}
+.download-arrows [data-gallery-prev]{left:10px}
+.download-arrows [data-gallery-next]{right:10px}
+.download-viewport:hover .download-arrows button:not(:disabled),
+.download-arrows button:focus-visible{opacity:.94}
+.download-arrows button:hover:not(:disabled),.download-arrows button:active:not(:disabled){
+  opacity:1;background:var(--orange);color:var(--ink);scale:1.06
+}
+.download-arrows button:disabled{opacity:.2;cursor:default}
+.download-gallery-controls:not([hidden]){display:flex;align-items:center;justify-content:center;gap:12px;padding:0 12px 8px}
+.download-gallery-controls p{margin:0;min-width:42px;text-align:center;font-size:12px;color:var(--muted)}
+.download-gallery-controls button{
+  min-height:36px;padding:4px 10px;border:0;border-radius:20px;
+  background:transparent;color:var(--ink);cursor:pointer;font-size:12px
+}
+.download-gallery-controls button:hover,.download-gallery-controls button:focus-visible{background:#eee4d2}
 @media(max-width:700px){.download-gallery{border-left:0;border-top:1.5px solid var(--ink)}}
